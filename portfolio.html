@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Desai Ren | Cloud Developer Portfolio</title>
+  <style>
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Video Background */
+    .video-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(0.3);
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      backdrop-filter: blur(6px);
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      color: #00ffe0;
+      text-shadow: 0 0 20px #00ffe0;
+      animation: fadeInDown 1.5s ease;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #ccc;
+      animation: fadeInUp 2s ease;
+    }
+
+    section {
+      padding: 60px 20px;
+      background: rgba(0, 0, 0, 0.6);
+      margin: 20px auto;
+      border-radius: 16px;
+      max-width: 900px;
+      backdrop-filter: blur(4px);
+      animation: fadeIn 2s ease;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 25px;
+      color: #00ffe0;
+      border-left: 5px solid #00ffe0;
+      padding-left: 15px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 12px;
+      border: 1px solid #00ffe088;
+      box-shadow: 0 0 15px #00ffe022;
+    }
+
+    .tilt-container {
+      margin: 30px auto;
+      width: 250px;
+      height: 350px;
+      perspective: 1000px;
+    }
+
+    .tilt-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      transition: transform 0.1s ease;
+      transform-style: preserve-3d;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 255, 224, 0.4);
+    }
+
+    .tilt-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+      color: #ccc;
+      background: rgba(0,0,0,0.4);
+    }
+
+    a.button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #00ffe0;
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🎥 Background Video -->
+  <video class="video-bg" autoplay muted loop>
+    <source src="C:\Users\Ren Desai\Pictures\portfolio\Coding Background (1).mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <header>
+    <h1>Desai Ren</h1>
+    <p>Cloud Application & Development Student</p>
+  </header>
+
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="card">
+      <p>
+        Hello! I'm Desai Ren, passionate about building cloud-based solutions and modern web applications. I work with technologies like AWS, Docker, HTML, and JavaScript.
+      </p>
+    </div>
+  </section>
+
+  <section id="avatar">
+    <h2 class="section-title">My 3D Avatar</h2>
+    <div class="tilt-container" id="tilt-card">
+      <div class="tilt-inner">
+        <img src="C:\Users\Ren Desai\Pictures\portfolio\phot.jpg" alt="3D Anime" />
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2 class="section-title">Skills</h2>
+    <div class="card">☁️ Cloud: AWS, Netlify, Azure</div>
+    <div class="card">⚙️ DevOps: GitHub Actions, Docker</div>
+    <div class="card">🧠 Frontend: HTML, CSS, JS</div>
+    <div class="card">📡 Backend: Firebase, MongoDB</div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <div class="card">
+      <p>📧 Email: your@email.com</p>
+      <p>💼 LinkedIn: linkedin.com/in/desairen</p>
+      <p>💻 GitHub: github.com/desairen</p>
+      <a class="button" href="mailto:your@email.com">Message Me</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Desai Ren | Portfolio Powered by HTML + CSS + 💻
+  </footer>
+
+  <!-- Tilt Script -->
+  <script>
+    const card = document.getElementById('tilt-card');
+
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const deltaX = (x - centerX) / 10;
+      const deltaY = (y - centerY) / 10;
+
+      const tiltInner = card.querySelector('.tilt-inner');
+      tiltInner.style.transform = `rotateY(${deltaX}deg) rotateX(${-deltaY}deg)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      const tiltInner = card.querySelector('.tilt-inner');
+      tiltInner.style.transform = `rotateY(0deg) rotateX(0deg)`;
+    });
+  </script>
+</body>
+</html>
